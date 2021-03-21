@@ -42,3 +42,49 @@ if (process.env.CONTENTFUL_HOST) {
 
 
 ```
+
+
+## copy
+
+```sh
+$ cp -r ./website/public/* ./docs
+
+```
+
+```sh
+
+$ chmod +x ./app.sh
+
+```
+
+## bug
+
+```js
+
+  "scripts": {
+    "dev": "cd ./website && npm run start",
+    "app": "cd ./website && npm run build",
+    "copy": "cp -r ./website/public/* ./docs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "dev": "./dev.sh",
+    "app": "./app.sh",
+    "copy": "./copy.sh",
+    "deploy": "./deploy.sh"
+  },
+
+```
+
+## dev
+
+> symbol link bug
+
+```sh
+$ ./dev.sh
+
+$ ./app.sh
+
+$ ./copy.sh
+
+```
