@@ -14,6 +14,12 @@ $ npm init gatsby
 # or
 $ gatsby new
 
+
+$ cd websites
+
+$ npm run develop
+# http://localhost:8000
+
 ```
 
 https://www.gatsbyjs.com/docs/quick-start/
