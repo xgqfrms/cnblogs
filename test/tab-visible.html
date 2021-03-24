@@ -33,7 +33,17 @@
   <!-- js -->
   <script>
     const log = console.log;
-    //
+    document.addEventListener('visibilitychange', function (e) {
+      console.log(`⭐️ document.visibilityState = ${document.visibilityState}`);
+      console.log(`⭐️ document.hidden = ${document.hidden}`);
+      if (document.hidden) {
+          // stop running expensive task
+          console.log(`❌ hidden ${new Date().toString()}`, e);
+      } else {
+          // page has focus, begin running task
+          console.log(`✅ visible ${new Date().toString()}`, e);
+      }
+  });
   </script>
 </body>
 </html>
