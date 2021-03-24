@@ -131,6 +131,7 @@ const IndexPage = () => {
     <main style={pageStyles}>
       <title>xgqfrms's cnblogs website</title>
       <h1 style={headingStyles}>
+      <span>👻 xgqfrms's cnblogs website</span>
         <span style={headingAccentStyles}>🚀 welcome to my blogs website!</span>
         <span role="img" aria-label="Party popper emojis">
           🎉🎉🎉
