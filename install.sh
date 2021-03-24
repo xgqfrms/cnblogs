@@ -15,5 +15,6 @@
 # echo "^-v-^ app is installing ..." && yarn
 # echo "^-v-^ app is installing ..." && cd ./website && yarn
 # echo "^-v-^ app is installing ..." && cd ./website && npm i
+echo "^-v-^ app is installing ..." && npm install
 echo "^-v-^ app is installing ..." && cd ./website && npm install
 
