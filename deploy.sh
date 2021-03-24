@@ -12,5 +12,5 @@
 # @link 
 # 
 
-echo "^-v-^ deploying ..." && yarn deploy
+echo "^-v-^ deploying ..." && ./app.sh && ./copy.sh
 
