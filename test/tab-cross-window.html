@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="author" content="xgqfrms">
+  <meta name="generator" content="VS code">
+  <title>tab-cross-window</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    pre {
+      color: #0f0;
+      background: #000;
+      padding: 30px;
+    }
+  </style>
+  <!-- <link rel="stylesheet" href="./index.css"> -->
+</head>
+<body>
+  <header>
+    <h1></h1>
+  </header>
+  <main>
+    <article>
+      <pre id="app"></pre>
+    </article>
+    <input type="text" id="text">
+    <button id="btn">create data</button>
+  </main>
+  <footer>
+    <p>copyright&copy; xgqfrms 2021</p>
+  </footer>
+  <!-- js -->
+  <script>
+    const log = console.log;
+    const app = document.querySelector(`#app`);
+    const text = document.querySelector(`#text`);
+    const btn = document.querySelector(`#btn`);
+    btn.addEventListener(`click`, () => {
+      localStorage.setItem(`tabData`, JSON.stringify({
+        time: (new Date().toString()),
+        text: text?.value ?? '👻', 
+      }));
+      text.value = ``;
+    });
+    setInterval(() => {
+      const data = JSON.parse(localStorage.getItem(`tabData`));
+      // console.log('data =', data);
+      // console.log('data?.text?.length =', data?.text?.length);
+      if(data?.text?.length) {
+        app.innerHTML = JSON.stringify(data, null, 4);
+      }
+    }, 3000);
+    document.addEventListener('visibilitychange', function (e) {
+      // console.log(`⭐️ document.visibilityState = ${document.visibilityState}`);
+      // console.log(`⭐️ document.hidden = ${document.hidden}`);
+      if (document.hidden) {
+          // stop running expensive task
+          console.log(`❌ hidden ${new Date().toString()}`, e);
+      } else {
+          // page has focus, begin running task
+          console.log(`✅ visible ${new Date().toString()}`, e);
+      }
+    });
+  </script>
+</body>
+</html>
