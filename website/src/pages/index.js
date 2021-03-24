@@ -9,7 +9,7 @@ const pageStyles = {
 const headingStyles = {
   marginTop: 0,
   marginBottom: 64,
-  maxWidth: 320,
+  minWidth: 320,
 }
 const headingAccentStyles = {
   color: "#663399",
@@ -129,29 +129,27 @@ const links = [
 const IndexPage = () => {
   return (
     <main style={pageStyles}>
-      <title>Home Page</title>
+      <title>xgqfrms's cnblogs website</title>
       <h1 style={headingStyles}>
-        Congratulations
-        <br />
-        <span style={headingAccentStyles}>— you just made a Gatsby site! </span>
+        <span style={headingAccentStyles}>🚀 welcome to my blogs website!</span>
         <span role="img" aria-label="Party popper emojis">
           🎉🎉🎉
         </span>
       </h1>
-      <p style={paragraphStyles}>
+      {/* <p style={paragraphStyles}>
         Edit <code style={codeStyles}>src/pages/index.js</code> to see this page
         update in real-time.{" "}
         <span role="img" aria-label="Sunglasses smiley emoji">
           😎
         </span>
-      </p>
+      </p> */}
       <ul style={listStyles}>
         <li style={docLinkStyle}>
           <a
             style={linkStyle}
-            href={`${docLink.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
+            href={`${docLink.url}?utm_source=xgqfrms.xyz`}
           >
-            {docLink.text}
+           🇨🇳 官方文档
           </a>
         </li>
         {links.map(link => (
