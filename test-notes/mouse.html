@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="xgqfrms">
+    <meta name="generator" content="VS code">
+    <title>mouse event testing</title>
+    <style title="text/css">
+      #scroll {
+        color:#fff;
+        background:#369;
+        width:70px;
+        height:70px;
+        position:absolute;
+        left:500px;
+        top:200px;
+      }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>mouse event testing</h1>
+    </header>
+    <main>
+      <div id="scroll" style="top: 500px;">请用鼠标滚轮移动方块</div>
+    <main>
+    <footer>
+        <p>copyriht&copy; xgqfrms 2021</p>
+    </footer>
+    <script>
+        var $ = function(id){
+          return document.getElementById(id);
+        };
+        window.onload = function(){
+          mouseScroll(function(delta){
+            var obj = $('scroll'),
+            current = parseInt(obj.offsetTop)+(delta*10);
+            obj.style.top = current+"px";
+          });
+        }
+        var mouseScroll = function(fn){
+          var roll = function(){
+            var delta = 0,
+            e = arguments[0] || window.event;
+            delta = (e.wheelDelta) ? e.wheelDelta / 120 : -(e.detail || 0) / 3;
+            fn(delta);
+            //回调函数中的回调函数
+          }
+          if(window.netscape ){
+            document.addEventListener('DOMMouseScroll', roll, false);
+          }else{
+            document.onmousewheel = roll;
+          }
+        }
+    </script>
+</body>
+</html>
+

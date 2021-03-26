@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="xgqfrms">
+    <meta name="generator" content="VS code">
+    <title>all web page events all in one</title>
+    <style>
+      pre#app {
+        color: #0f0;
+        background: #000;
+        padding: 30px;
+      }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>test</h1>
+    </header>
+    <main>
+        <section>
+            <pre id="app"></pre>
+        </section>
+        <article></article>
+    <main>
+    <footer>
+        <p>copyriht&copy; xgqfrms 2021</p>
+    </footer>
+    <script>
+      // load
+      const app = document.querySelector(`#app`);
+      // keyboard events: down, up, press
+      const AutoGetKeys = (e) => {
+        const {
+          altKey,
+          ctrlKey,
+          metaKey,
+          shiftKey,
+          type,
+          code,
+          charCode,
+          key,
+          keyCode,
+          which,
+        } = e;
+        return {
+          altKey,
+          ctrlKey,
+          metaKey,
+          shiftKey,
+          type,
+          code,
+          charCode,
+          key,
+          keyCode,
+          which,
+        };
+      }
+      document.addEventListener('keydown', (e) => {
+        console.log('keydown e', e);
+        app.innerHTML = JSON.stringify(AutoGetKeys(e), null, 4);
+      });
+      document.addEventListener('keyup', (e) => {
+        console.log('keyup e', e);
+        app.innerHTML = JSON.stringify(AutoGetKeys(e), null, 4);
+      });
+      document.addEventListener('keypress', (e) => {
+        console.log('keypress e', e);
+        app.innerHTML = JSON.stringify(AutoGetKeys(e), null, 4);
+      });
+      // pointer events: down, up, move, over, out, enter, and leave
+      // document.addEventListener('pointerdown', (e) => {
+      //   console.log('pointer down', e);
+      // });
+      // document.addEventListener('pointerup', (e) => {
+      //   console.log('pointer up', e);
+      // });
+      // document.addEventListener('pointermove', (e) => {
+      //   console.log('pointer move', e);
+      // });
+      // document.addEventListener('pointerover', (e) => {
+      //   console.log('pointer over', e);
+      // });
+      // document.addEventListener('pointerout', (e) => {
+      //   console.log('pointer out', e);
+      // });
+      // document.addEventListener('pointerenter', (e) => {
+      //   console.log('pointer enter', e);
+      // });
+      // document.addEventListener('pointerleave', (e) => {
+      //   console.log('pointer leave', e);
+      // });
+      // mouse events: click, dblclick, mouseup, mousedown, mousemove
+      // document.addEventListener('click', (e) => {
+      //   console.log('mouse click e', e);
+      // });
+      // document.addEventListener('dblclick', (e) => {
+      //   console.log('mouse dblclick e', e);
+      // });
+      // document.addEventListener('mouseup', (e) => {
+      //   console.log('mouse up e', e);
+      // });
+      // document.addEventListener('mousedown', (e) => {
+      //   console.log('mouse down e', e);
+      // });
+      // document.addEventListener('mousemove', (e) => {
+      //   console.log('mouse move e', e);
+      // });
+    </script>
+</body>
+</html>
