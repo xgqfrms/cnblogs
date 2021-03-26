@@ -58,18 +58,39 @@
           which,
         };
       }
+      const throttle = (func, delay) => {
+        let flag = true;
+        return function(args) {
+            const that = this;
+            if(flag) {
+                flag = false;
+                func.id = setTimeout(() => {
+                    func.call(that, args);
+                    clearTimeout(func.id);
+                    flag = true;
+                }, delay);
+            } else {
+                // ignore
+                console.log(`ignore event`);
+            }
+        };
+      };
       document.addEventListener('keydown', (e) => {
-        console.log('keydown e', e);
-        app.innerHTML = JSON.stringify(AutoGetKeys(e), null, 4);
+        const kd = () => {
+          console.log('keydown e', e);
+          app.innerHTML = JSON.stringify(AutoGetKeys(e), null, 4);
+        }
+        throttle(kd, 3000)();
       });
-      document.addEventListener('keyup', (e) => {
-        console.log('keyup e', e);
-        app.innerHTML = JSON.stringify(AutoGetKeys(e), null, 4);
-      });
-      document.addEventListener('keypress', (e) => {
-        console.log('keypress e', e);
-        app.innerHTML = JSON.stringify(AutoGetKeys(e), null, 4);
-      });
+      // document.addEventListener('keyup', (e) => {
+      //   console.log('keyup e', e);
+      //   app.innerHTML = JSON.stringify(AutoGetKeys(e), null, 4);
+      // });
+      // document.addEventListener('keypress', (e) => {
+      //   console.log('keypress e', e);
+      //   app.innerHTML = JSON.stringify(AutoGetKeys(e), null, 4);
+      // });
+
       // pointer events: down, up, move, over, out, enter, and leave
       // document.addEventListener('pointerdown', (e) => {
       //   console.log('pointer down', e);
