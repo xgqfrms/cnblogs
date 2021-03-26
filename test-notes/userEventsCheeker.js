@@ -12,9 +12,9 @@ class UserEventsChecker {
         this.init(callback);
     }
     init (callback) {
-        // this.keyboardEvents(callback);
-        // this.mouseEvents(callback);
-        // this.pointerEvents(callback);
+        this.keyboardEvents(callback);
+        this.mouseEvents(callback);
+        this.pointerEvents(callback);
     }
     static autoGetKeys (e = {}) {
         const {
@@ -147,9 +147,9 @@ const AutoGetKeys = (e = {}) => {
 };
 
 
-export {
-    // UserEventsChecker,
-    AutoGetKeys,
-};
+// export {
+//     // UserEventsChecker,
+//     AutoGetKeys,
+// };
 
-export default UserEventsChecker;
+// export default UserEventsChecker;

@@ -28,111 +28,16 @@
     <footer>
         <p>copyriht&copy; xgqfrms 2021</p>
     </footer>
+    <script src="./userEventsCheeker.js"></script>
     <script>
       // load
       const app = document.querySelector(`#app`);
-      const AutoGetKeys = (e) => {
-        const {
-          altKey,
-          ctrlKey,
-          metaKey,
-          shiftKey,
-          type,
-          code,
-          charCode,
-          key,
-          keyCode,
-          which,
-        } = e;
-        return {
-          altKey,
-          ctrlKey,
-          metaKey,
-          shiftKey,
-          type,
-          code,
-          charCode,
-          key,
-          keyCode,
-          which,
-        };
+      const callback = (obj = {}) => {
+        // console.log('keydown e', JSON.stringify(obj, null, 4));
+        app.innerHTML = JSON.stringify(obj, null, 4);
       }
-      // const throttle = (func, delay) => {
-      //   let flag = true;
-      //   return function(args) {
-      //       const that = this;
-      //       if(flag) {
-      //           flag = false;
-      //           func.id = setTimeout(() => {
-      //               func.call(that, args);
-      //               clearTimeout(func.id);
-      //               flag = true;
-      //           }, delay);
-      //       } else {
-      //           // ignore
-      //           console.log(`ignore event`);
-      //       }
-      //   };
-      // };
-      // document.addEventListener('keydown', (e) => {
-      //   const kd = () => {
-      //     console.log('keydown e', e);
-      //     app.innerHTML = JSON.stringify(AutoGetKeys(e), null, 4);
-      //   }
-      //   throttle(kd, 3000)();
-      // });
-      // keyboard events: down, up, press
-      // document.addEventListener('keydown', (e) => {
-      //   console.log('keydown e', e);
-      //   app.innerHTML = JSON.stringify(AutoGetKeys(e), null, 4);
-      // });
-      // document.addEventListener('keyup', (e) => {
-      //   console.log('keyup e', e);
-      //   app.innerHTML = JSON.stringify(AutoGetKeys(e), null, 4);
-      // });
-      // document.addEventListener('keypress', (e) => {
-      //   console.log('keypress e', e);
-      //   app.innerHTML = JSON.stringify(AutoGetKeys(e), null, 4);
-      // });
-
-      // pointer events: down, up, move, over, out, enter, and leave
-      // document.addEventListener('pointerdown', (e) => {
-      //   console.log('pointer down', e);
-      // });
-      // document.addEventListener('pointerup', (e) => {
-      //   console.log('pointer up', e);
-      // });
-      // document.addEventListener('pointermove', (e) => {
-      //   console.log('pointer move', e);
-      // });
-      // document.addEventListener('pointerover', (e) => {
-      //   console.log('pointer over', e);
-      // });
-      // document.addEventListener('pointerout', (e) => {
-      //   console.log('pointer out', e);
-      // });
-      // document.addEventListener('pointerenter', (e) => {
-      //   console.log('pointer enter', e);
-      // });
-      // document.addEventListener('pointerleave', (e) => {
-      //   console.log('pointer leave', e);
-      // });
-      // mouse events: click, dblclick, mouseup, mousedown, mousemove
-      // document.addEventListener('click', (e) => {
-      //   console.log('mouse click e', e);
-      // });
-      // document.addEventListener('dblclick', (e) => {
-      //   console.log('mouse dblclick e', e);
-      // });
-      // document.addEventListener('mouseup', (e) => {
-      //   console.log('mouse up e', e);
-      // });
-      // document.addEventListener('mousedown', (e) => {
-      //   console.log('mouse down e', e);
-      // });
-      // document.addEventListener('mousemove', (e) => {
-      //   console.log('mouse move e', e);
-      // });
+      const test = new UserEventsChecker('app', callback);
+      // test();
     </script>
 </body>
 </html>
