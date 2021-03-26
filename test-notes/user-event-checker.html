@@ -32,9 +32,21 @@
     <script>
       // load
       const app = document.querySelector(`#app`);
-      const callback = (obj = {}) => {
-        // console.log('keydown e', JSON.stringify(obj, null, 4));
-        app.innerHTML = JSON.stringify(obj, null, 4);
+      let timerId = null;
+      // 1000 * 60 * 10
+      const callback = (obj = {}, timer = 1000 * 60) => {
+        console.log('keydown e', JSON.stringify(obj, null, 4));
+        if([Object.keys(obj)].length) {
+          app.innerHTML = JSON.stringify(obj, null, 4);
+          if(timerId) {
+            clearTimeout(timerId);
+          }
+        }
+        // localStorage Map pathname ? false : true
+        timerId = setTimeout(() => {
+            console.log('该页面超过 1 分钟没有任何操作了');
+            alert('该页面超过 1 分钟没有任何操作了');
+        }, timer);
       }
       const test = new UserEventsChecker('app', callback);
       // test();
